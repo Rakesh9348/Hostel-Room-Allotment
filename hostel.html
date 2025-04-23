@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hostel Room Allotment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #d0d1d1;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Hostel Room Allotment</h2>
+    <form id="allotmentForm">
+      <label for="name">Student Name</label>
+      <input type="text" id="name" required>
+
+      <label for="roll">Roll Number</label>
+      <input type="text" id="roll" required>
+
+      <label for="branch">Branch</label>
+      <input type="text" id="branch" required>
+
+      <label for="room">Room Number</label>
+      <input type="number" id="room" required>
+
+      <label for="hostel">Hostel Block</label>
+      <select id="hostel">
+        <option value="A">Block A</option>
+        <option value="B">Block B</option>
+        <option value="C">Block C</option>
+      </select>
+
+      <button type="submit">Allot Room</button>
+    </form>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('allotmentForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const roll = document.getElementById('roll').value;
+      const branch = document.getElementById('branch').value;
+      const room = document.getElementById('room').value;
+      const hostel = document.getElementById('hostel').value;
+
+      message.textContent = `Room ${room} in Block ${hostel} allotted to ${name} (${roll}, ${branch}) successfully! 🎉`;
+      message.style.color = "green";
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
